@@ -18,6 +18,7 @@ int main()
     int evenOrOddSummary;
     int hexadecimaNumber;
     int octalNumber;
+    const int sizeOfByte = 8;
 
     // Ascii
     printf("Ascii:\nPlease enter a character\n");
@@ -66,7 +67,7 @@ int main()
     printf("Please enter two numbers in octal and hexadecimal bases\n");
     scanf("%o %x", &octalNumber, &hexadecimaNumber);
     printf("LSBs: %d %d\n", octalNumber & 1, hexadecimaNumber & 1);
-    printf("MSBs: %d %d\n", (octalNumber >> (sizeof(int) * 8 - 1)) & 1, (hexadecimaNumber >> (sizeof(int) * 8 - 1)) & 1);
+    printf("MSBs: %d %d\n", (octalNumber >> (sizeof(int) * sizeOfByte - 1)) & 1, (hexadecimaNumber >> (sizeof(int) * sizeOfByte - 1)) & 1);
     printf("Bye!");
     /*  Scan two numbers:
         One in octal base, one in Hexadecimal base.
