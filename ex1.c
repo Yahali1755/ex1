@@ -15,7 +15,6 @@ int main()
     int evenOrOddFirstNumber;
     int evenOrOddSecondNumber;
     int evenOrOddThirdNumber;
-    int evenOrOddSummary;
     int hexadecimaNumber;
     int octalNumber;
     const int sizeOfByte = 8;
