@@ -19,6 +19,9 @@ int main()
     int hexadecimaNumber;
     int octalNumber;
     const int sizeOfByte = 8;
+    int firstNumberLsb;
+    int secondNumberLsb;
+    int thirdNumberLsb;
 
     // Ascii
     printf("Ascii:\nPlease enter a character\n");
@@ -56,8 +59,11 @@ int main()
     printf("\nEven - Odd:\n");
     printf("Please enter 3 integers\n");
     scanf("%d %d %d", &evenOrOddFirstNumber, &evenOrOddSecondNumber, &evenOrOddThirdNumber);
-    evenOrOddSummary = (evenOrOddFirstNumber & 1) + (evenOrOddSecondNumber & 1) + (evenOrOddThirdNumber & 1);
-    printf("0 - most of them are even, 1 - most of them are odd: %d\n", evenOrOddSummary / 2);
+    firstNumberLsb = evenOrOddFirstNumber & 1;
+    secondNumberLsb = evenOrOddSecondNumber & 1;
+    thirdNumberLsb = evenOrOddThirdNumber & 1;
+    printf("0 - most of them are even, 1 - most of them are odd: %d\n", (firstNumberLsb & secondNumberLsb) |
+    (secondNumberLsb & thirdNumberLsb) | (firstNumberLsb & thirdNumberLsb));
     /* Scan 3 Integers.
     If at least two of them are even - print 0.
     If at least two of them are odd - print 1. */
