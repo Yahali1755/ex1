@@ -45,7 +45,7 @@ int main()
     printf("\n2's complement to other representations:\n");
     printf("Please enter a negative integer\n");
     scanf("%d", &negativeNumber);
-    printf("1's complement: -%d", ~negativeNumber);
+    printf("1's complement: %d", negativeNumber - (~0));
     printf("\nunsigned: %u\n", negativeNumber);
 
     // Shifting right and left
