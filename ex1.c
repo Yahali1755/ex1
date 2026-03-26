@@ -10,20 +10,46 @@ Assignment:
 int main()
 {
 
+    int asciiChar;
+    int negativeNumber;
+    int numberToShift;
+    int shiftLeftByNumber;
+    int shiftRightByNumber;
+    int evenOrOddFirstNumber;
+    int evenOrOddSecondNumber;
+    int evenOrOddThirdNumber;
+    int hexadecimaNumber;
+    int octalNumber;
+    const int bitsToShiftRightBy = 31;
+    int firstNumberLsb;
+    int secondNumberLsb;
+    int thirdNumberLsb;
+
     // Ascii
-    printf("Ascii:\n");
-    /*. Scan one character from the user.
-        Then, refer to it as an integer.
-        a. Print its value.
-        b:
-        Print “0”, if its integer representation is even.
-        print “1” if its integer representation is odd. */
+    /*. 
+    Scan one character from the user.  
+    Then, refer to it as an integer.
+    a. Print its value.
+    b:
+    Print “0”, if its integer representation is even.
+    print “1” if its integer representation is odd.
+    */
+    printf("Ascii:\nPlease enter a character\n");
+    asciiChar = getchar();
+    printf("Its numerical value is: %d", asciiChar);
+    printf("\n0 for even, 1 for odd: %d\n", asciiChar & 1);
 
     // 2's complement and other representations
+    /*. 
+    Scan a negative integer. [2’s complement].
+    Print its value in 1’s complement.
+    Print its value as unsigned. 
+    */
     printf("\n2's complement to other representations:\n");
-    /*. Scan a negative integer. [2’s complement].
-        Print its value in 1’s complement.
-        Print its value as unsigned. */
+    printf("Please enter a negative integer\n");
+    scanf("%d", &negativeNumber);
+    printf("1's complement: %d", -(~negativeNumber));
+    printf("\nunsigned: %u\n", negativeNumber);
 
     // Shifting right and left
     printf("\nShifting right and left:\n");
