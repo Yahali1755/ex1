@@ -1,29 +1,26 @@
 /******************
-Name:
-ID:
-Assignment:
+Name: Yahali Mashiach
+ID: 214007346
+Assignment: ex1
 *******************/
 #include <stdio.h>
 
-// REMIDER : YOU CANT USE ANY CONTROL FLOW OPERATIONS OR FUNCTIONS, ONLY BITWISE. not even "==, &&, ||, !="
-
 int main()
 {
-
-    int asciiChar;
     int negativeNumber;
+    int asciiChar;
     int numberToShift;
     int shiftLeftByNumber;
     int shiftRightByNumber;
-    int evenOrOddFirstNumber;
-    int evenOrOddSecondNumber;
-    int evenOrOddThirdNumber;
-    int hexadecimaNumber;
+    int evenOrOdd1;
+    int evenOrOdd2;
+    int evenOrOdd3;
+    int hexaNumber;
     int octalNumber;
-    const int bitsToShiftRightBy = 31;
     int firstNumberLsb;
     int secondNumberLsb;
     int thirdNumberLsb;
+    const int BITS_TO_SHIFT_RIGHT_BY = 31;
 
     // Ascii
     /*. 
@@ -52,26 +49,45 @@ int main()
     printf("\nunsigned: %u\n", negativeNumber);
 
     // Shifting right and left
+    /*. 
+    Scan 3 integers.
+    The first one - the value you will play with.
+    The second and the third - how much to shift right and left, respectively.
+    Print the value after shifting right and then shifting left. 
+    */
     printf("\nShifting right and left:\n");
-    /*. Scan 3 integers.
-        The first one - the value you will play with.
-        The second and the third - how much to shift right and left, respectively.
-        Print the value after shifting right and then shifting left. */
+    printf("Please enter 3 integers\n");
+    scanf("%d %d %d", &numberToShift, &shiftRightByNumber, &shiftLeftByNumber);
+    printf("After shifting right and left: %d\n", (numberToShift >> shiftRightByNumber) << shiftLeftByNumber);
 
     // Even - Odd
-    printf("\nEven - Odd:\n");
-    /* Scan 3 Integers.
+    /* 
+    Scan 3 Integers.
     If at least two of them are even - print 0.
-    If at least two of them are odd - print 1. */
+    If at least two of them are odd - print 1. 
+    */
+    printf("\nEven - Odd:\n");
+    printf("Please enter 3 integers\n");
+    scanf("%d %d %d", &evenOrOdd1, &evenOrOdd2, &evenOrOdd3);
+    firstNumberLsb = evenOrOdd1 & 1;
+    secondNumberLsb = evenOrOdd2 & 1;
+    thirdNumberLsb = evenOrOdd3 & 1;
+    printf("0 - most of them are even, 1 - most of them are odd: %d\n", (firstNumberLsb & secondNumberLsb) |
+    (secondNumberLsb & thirdNumberLsb) | (firstNumberLsb & thirdNumberLsb));
 
     // Different Bases
+    /*  
+    Scan two numbers:
+    One in octal base, one in Hexadecimal base.
+    Print their LSB’s.
+    Print their MSB’s. 
+    */
     printf("\nDifferent Bases:\n");
-    /*  Scan two numbers:
-        One in octal base, one in Hexadecimal base.
-        Print their LSB’s.
-        Print their MSB’s. */
-
-    printf("Bye!\n");
+    printf("Please enter two numbers in octal and hexadecimal bases\n");
+    scanf("%o %x", &octalNumber, &hexaNumber);
+    printf("LSBs: %d %d\n", octalNumber & 1, hexaNumber & 1);
+    printf("MSBs: %d %d\n", (octalNumber >> BITS_TO_SHIFT_RIGHT_BY) & 1, (hexaNumber >> BITS_TO_SHIFT_RIGHT_BY) & 1);
+    printf("Bye!");
 
     return 0;
 }
